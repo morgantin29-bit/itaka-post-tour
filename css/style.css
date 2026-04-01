@@ -453,7 +453,7 @@ button {
   justify-content: center;
   overflow: hidden;
   /* Reservar espacio para el header fijo para que el contenido no quede detrás */
-  padding-top: var(--header-h);
+  padding-top: var(80px);
 }
 
 /* Imagen de fondo — se setea con style="background-image: url(...)" en cada HTML */
