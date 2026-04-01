@@ -1355,23 +1355,49 @@ footer {
 /* Móvil — hasta 640px */
 @media (max-width: 640px) {
   :root { --section-padding: 4rem 0; }
-.hero-full {
-  padding-top: 300px;
-}
+
+  /* Hero index: altura automática para que el contenido nunca se corte.
+     min-height mantiene el aspecto fullscreen si el contenido es corto. */
+  .hero-full {
+    height: auto;
+    min-height: 100svh;
+    padding-bottom: 3rem;
+  }
+
+  /* Menos margen vertical entre elementos del hero para que quepan mejor */
+  .hero-eyebrow { margin-bottom: 1rem; }
+  .hero-sub     { margin-bottom: 2rem; }
+
+  /* Tiles en horizontal: icono + texto en la misma fila.
+     Ahorra ~120px de altura respecto a la versión vertical apilada. */
+  .hero-cta-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+
+  .cta-tile {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 1rem 1.25rem;
+    gap: 1rem;
+  }
+
+  /* Hero páginas interiores */
+  .hero-page { padding-bottom: 2.5rem; }
+
+  /* Grids de contenido */
   .tours-grid  { grid-template-columns: 1fr; }
   .places-grid { grid-template-columns: 1fr; }
 
-  .hero-cta-grid { grid-template-columns: 1fr; max-width: 320px; }
-
-  .form-row    { grid-template-columns: 1fr; }
+  /* Formularios */
+  .form-row     { grid-template-columns: 1fr; }
   .form-wrapper { padding: 1.75rem 1.4rem; }
 
+  /* Footer */
   .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom {
     flex-direction: column;
     gap: 0.5rem;
     text-align: center;
   }
-
-  .hero-page { padding-bottom: 2.5rem; }
 }
