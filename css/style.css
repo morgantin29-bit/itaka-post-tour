@@ -107,9 +107,10 @@ button {
    3. UTILIDADES
 ════════════════════════════ */
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3rem);
 }
 
 /* Etiqueta pequeña dorada sobre el título de sección */
@@ -451,6 +452,8 @@ button {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  /* Reservar espacio para el header fijo para que el contenido no quede detrás */
+  padding-top: var(--header-h);
 }
 
 /* Imagen de fondo — se setea con style="background-image: url(...)" en cada HTML */
@@ -619,6 +622,8 @@ button {
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+  /* padding-top reserva el header fijo; padding-bottom da aire al texto */
+  padding-top: var(--header-h);
   padding-bottom: 4rem;
 }
 
