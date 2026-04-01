@@ -1356,7 +1356,7 @@ footer {
 @media (max-width: 640px) {
   :root { --section-padding: 4rem 0; }
 .hero-full {
-  padding-top: 100px;
+  padding-top: 200px;
 }
   .tours-grid  { grid-template-columns: 1fr; }
   .places-grid { grid-template-columns: 1fr; }
