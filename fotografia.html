@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fotografía & Video — Itaka Tours Venecia</title>
+  <meta name="description" content="Sesiones fotográficas y de video profesionales en Venecia. Capturo los momentos más especiales de tu visita." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Descripción del servicio ── */
+    .foto-intro {
+      max-width: 720px;
+      margin-bottom: 4rem;
+    }
+
+    .foto-intro p {
+      color: var(--grey-light);
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+
+    .foto-features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .foto-feature {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 2rem 1.75rem;
+      background: var(--dark-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .foto-feature:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .foto-feature-icon {
+      width: 44px;
+      height: 44px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .foto-feature-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .foto-feature-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .foto-feature-desc {
+      font-size: 0.9rem;
+      color: var(--grey);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 768px) {
+      .foto-features {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+      }
+    }
+
+    /* ── Galería ── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+
+    .photo-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      cursor: pointer;
+      border-radius: var(--radius);
+      background: var(--dark-3);
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+
+    .photo-item:hover img {
+      transform: scale(1.07);
+    }
+
+    .photo-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0);
+      transition: background var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-item:hover .photo-item-overlay {
+      background: rgba(0, 0, 0, 0.38);
+    }
+
+    .photo-item-overlay svg {
+      width: 44px;
+      color: var(--white);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+
+    .photo-item:hover .photo-item-overlay svg {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ── Lightbox ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.95);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-img-wrap {
+      position: relative;
+      max-width: min(90vw, 1100px);
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img-wrap img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.8);
+    }
+
+    .lightbox-btn {
+      position: fixed;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--white);
+      cursor: pointer;
+      border-radius: 50%;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition);
+      font-size: 1.25rem;
+    }
+
+    .lightbox-btn:hover {
+      background: rgba(201, 168, 76, 0.35);
+    }
+
+    .lightbox-close {
+      top: 1.25rem;
+      right: 1.25rem;
+    }
+
+    .lightbox-prev {
+      left: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-next {
+      right: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* ── Video embed ── */
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ── Paquetes ── */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .package-card {
+      background: var(--dark-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .package-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(201, 168, 76, 0.15);
+    }
+
+    .package-card.featured {
+      border-color: var(--gold);
+      background: linear-gradient(160deg, var(--dark-2) 0%, rgba(201, 168, 76, 0.07) 100%);
+    }
+
+    .package-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      padding: 0.28rem 0.75rem;
+      border-radius: 2px;
+      align-self: flex-start;
+    }
+
+    .package-name {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .package-price {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .package-price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--grey);
+      margin-left: 0.25rem;
+    }
+
+    .package-features {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      flex: 1;
+    }
+
+    .package-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      font-size: 0.92rem;
+      color: var(--grey-light);
+    }
+
+    .package-features li::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    /* ── Formulario ── */
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--dark-3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius);
+      outline: none;
+      transition: border-color var(--transition);
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group select option {
+      background: var(--dark-2);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* input[type=date] calendar icon color fix */
+    .form-group input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(0.7);
+      cursor: pointer;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .packages-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .lightbox-prev,
+      .lightbox-next {
+        width: 40px;
+        height: 40px;
+      }
+
+      .lightbox-prev { left: 0.5rem; }
+      .lightbox-next { right: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Itaka Tours inicio">
+        <img src="Images/logo.png" alt="Itaka Tours" class="logo-img" />
+        <div class="logo-text">
+          <span class="logo-name">Itaka Tours</span>
+          <span class="logo-tagline">Venecia</span>
+        </div>
+      </a>
+      <nav class="nav-desktop">
+        <a href="index.html">Inicio</a>
+        <a href="tours.html">Tours</a>
+        <a href="restaurantes.html">Dónde Comer</a>
+        <a href="fotografia.html">Fotografía</a>
+        <a href="feedback.html" class="btn btn-gold">Tu Opinión</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MENÚ MÓVIL -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Navegación móvil">
+    <a href="index.html">Inicio</a>
+    <a href="tours.html">Tours</a>
+    <a href="restaurantes.html">Dónde Comer</a>
+    <a href="fotografia.html">Fotografía</a>
+    <a href="feedback.html">Tu Opinión</a>
+    <p class="mobile-nav-footer">Itaka Tours · Venecia</p>
+  </nav>
+
+
+  <main>
+
+    <!-- ════════════════════════════════════════
+         1. HERO
+    ════════════════════════════════════════ -->
+    <section class="hero-page">
+      <div class="hero-bg" style="background-image: url('images/fotografia/DSC09859.jpg'); background-position: center 30%;"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-page-content">
+        <p class="hero-page-label">Itaka Tours · Venecia</p>
+        <h1 class="hero-page-title">Fotografía &amp; <span>Video</span> en Venecia</h1>
+        <p class="hero-page-desc">Capturo los momentos más especiales de tu visita</p>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+         DESCRIPCIÓN DEL SERVICIO
+    ════════════════════════════════════════ -->
+    <section class="section" style="background: var(--dark);">
+      <div class="container">
+
+        <div class="foto-intro reveal">
+          <div class="foto-intro-text">
+            <span class="section-label">El servicio</span>
+            <h2 class="section-title">Una memoria que dura <span>para siempre</span></h2>
+            <div class="gold-line"></div>
+            <p>Venecia es una de las ciudades más fotogénicas del mundo — pero captarla bien requiere algo más que un teléfono. Soy guía de tours en Venecia y fotógrafo, y conozco cada rincón, cada luz y cada hora del día en que la ciudad se transforma.</p>
+            <p style="margin-top: 1.1rem;">Te ofrezco sesiones de fotografía y video con estilo cinematográfico: retratos, parejas, familias, propuestas de matrimonio, o simplemente vos con Venecia de fondo como merece ser recordada.</p>
+          </div>
+        </div>
+
+        <div class="foto-features reveal">
+
+          <div class="foto-feature">
+            <div class="foto-feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h3 class="foto-feature-title">Locaciones únicas</h3>
+            <p class="foto-feature-desc">Los rincones más especiales, lejos de las multitudes</p>
+          </div>
+
+          <div class="foto-feature">
+            <div class="foto-feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"/>
+              </svg>
+            </div>
+            <h3 class="foto-feature-title">Estilo cinematográfico</h3>
+            <p class="foto-feature-desc">Fotos y videos con edición profesional</p>
+          </div>
+
+          <div class="foto-feature">
+            <div class="foto-feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h3 class="foto-feature-title">Portfolio en crecimiento</h3>
+            <p class="foto-feature-desc">Precios especiales mientras armamos el portfolio juntos</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+         2. GALERÍA DE FOTOS
+    ════════════════════════════════════════ -->
+    <section class="section section-bg-dark" id="galeria">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">Galería</span>
+          <h2 class="section-title">Venecia a través <span>del objetivo</span></h2>
+          <div class="gold-line"></div>
+          <p class="section-subtitle">Haz clic en cualquier foto para verla a tamaño completo.</p>
+        </div>
+
+        <div class="photo-grid reveal">
+
+          <div class="photo-item" data-index="0">
+            <img src="images/fotografia/DSC08885-Mejorado-NR.jpg" alt="Mujer caminando por canal de noche — hora azul" loading="lazy" />
+            <div class="photo-item-overlay">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="photo-item" data-index="1">
+            <img src="images/fotografia/02.jpg" alt="Manos tomadas con anillo de compromiso" loading="lazy" />
+            <div class="photo-item-overlay">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="photo-item" data-index="2">
+            <img src="images/fotografia/03.jpg" alt="Silueta de pareja al atardecer" loading="lazy" />
+            <div class="photo-item-overlay">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="photo-item" data-index="3">
+            <img src="images/fotografia/0112.jpg" alt="Góndola en el Gran Canal" loading="lazy" />
+            <div class="photo-item-overlay">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="photo-item" data-index="4">
+            <img src="images/fotografia/DSC08688.jpg" alt="Pareja riendo al anochecer" loading="lazy" />
+            <div class="photo-item-overlay">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="photo-item" data-index="5">
+            <img src="images/fotografia/DSC09859.jpg" alt="Disfraz de carnaval veneciano" loading="lazy" />
+            <div class="photo-item-overlay">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="photo-item" data-index="6">
+            <img src="images/fotografia/DSC09678.jpg" alt="Mujer en el Puente de Rialto con reflejo" loading="lazy" />
+            <div class="photo-item-overlay">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="photo-item" data-index="7">
+            <img src="images/fotografia/DSC00239.jpg" alt="Pareja sentada en el muelle del Gran Canal" loading="lazy" />
+            <div class="photo-item-overlay">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+         LIGHTBOX
+    ════════════════════════════════════════ -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de fotos">
+      <button class="lightbox-btn lightbox-close" id="lbClose" aria-label="Cerrar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      <button class="lightbox-btn lightbox-prev" id="lbPrev" aria-label="Foto anterior">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      <div class="lightbox-img-wrap">
+        <img id="lbImg" src="" alt="" />
+      </div>
+      <button class="lightbox-btn lightbox-next" id="lbNext" aria-label="Foto siguiente">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+    </div>
+
+
+    <!-- ════════════════════════════════════════
+         3. VIDEO
+    ════════════════════════════════════════ -->
+    <section class="section" id="video" style="background: var(--dark);">
+      <div class="container">
+
+        <div class="section-header reveal" style="text-align: center; align-items: center;">
+          <span class="section-label">Cortometraje</span>
+          <h2 class="section-title">Venecia en <span>Movimiento</span></h2>
+          <div class="gold-line" style="margin-left: auto; margin-right: auto;"></div>
+        </div>
+
+        <div class="video-wrap reveal">
+          <iframe
+            src="https://www.youtube.com/embed/UdObR4InuNs"
+            title="Venecia en Movimiento — Itaka Tours"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+         4. SERVICIO FOTOGRÁFICO — PAQUETES
+    ════════════════════════════════════════ -->
+    <section class="section section-bg-dark" id="paquetes">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">Paquetes</span>
+          <h2 class="section-title">Elige tu <span>sesión</span></h2>
+          <div class="gold-line"></div>
+          <p class="section-subtitle">Todos los paquetes incluyen fotos editadas en alta resolución y entrega en galería privada online.</p>
+        </div>
+
+        <div class="packages-grid reveal">
+
+          <!-- Paquete Básico -->
+          <div class="package-card">
+            <p class="package-name">Básico</p>
+            <p class="package-price">€80<span>/ sesión</span></p>
+            <ul class="package-features">
+              <li>1 hora de sesión</li>
+              <li>20 fotos editadas</li>
+              <li>Entrega en 48 h</li>
+              <li>Galería privada online</li>
+            </ul>
+            <a href="#reserva" class="btn btn-outline" style="text-align: center;">Reservar este paquete</a>
+          </div>
+
+          <!-- Paquete Estándar (destacado) -->
+          <div class="package-card featured">
+            <span class="package-badge">Más popular</span>
+            <p class="package-name">Estándar</p>
+            <p class="package-price">€150<span>/ sesión</span></p>
+            <ul class="package-features">
+              <li>2 horas de sesión</li>
+              <li>50 fotos editadas</li>
+              <li>1 video corto (60 seg.)</li>
+              <li>Entrega en 48 h</li>
+              <li>Galería privada online</li>
+            </ul>
+            <a href="#reserva" class="btn btn-gold" style="text-align: center;">Reservar este paquete</a>
+          </div>
+
+          <!-- Paquete Premium -->
+          <div class="package-card">
+            <p class="package-name">Premium</p>
+            <p class="package-price">€280<span>/ sesión</span></p>
+            <ul class="package-features">
+              <li>Medio día de sesión</li>
+              <li>Fotos ilimitadas editadas</li>
+              <li>Video completo (3–5 min.)</li>
+              <li>Entrega prioritaria en 24 h</li>
+              <li>Galería privada online</li>
+            </ul>
+            <a href="#reserva" class="btn btn-outline" style="text-align: center;">Reservar este paquete</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+         5. FORMULARIO DE RESERVA
+    ════════════════════════════════════════ -->
+    <section class="section" id="reserva" style="background: var(--dark);">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">Contacto</span>
+          <h2 class="section-title">Reservá tu <span>sesión</span></h2>
+          <div class="gold-line"></div>
+          <p class="section-subtitle">Rellena el formulario y te confirmo disponibilidad en menos de 24 horas.</p>
+        </div>
+
+        <form
+          name="reserva-foto"
+          netlify
+          method="POST"
+          style="max-width: 740px;"
+          class="reveal"
+        >
+          <input type="hidden" name="form-name" value="reserva-foto" />
+
+          <div class="form-grid-2">
+
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="María García" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="maria@ejemplo.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="telefono">Teléfono / WhatsApp</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000" />
+            </div>
+
+            <div class="form-group">
+              <label for="fecha">Fecha deseada</label>
+              <input type="date" id="fecha" name="fecha" required />
+            </div>
+
+            <div class="form-group full">
+              <label for="paquete">Paquete</label>
+              <select id="paquete" name="paquete" required>
+                <option value="" disabled selected>Selecciona un paquete…</option>
+                <option value="basico">Básico — 1 h · 20 fotos · €80</option>
+                <option value="estandar">Estándar — 2 h · 50 fotos + video · €150</option>
+                <option value="premium">Premium — Medio día · ilimitadas + video · €280</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label for="mensaje">Mensaje (opcional)</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Cuéntame algo sobre la ocasión, dónde te gustaría hacer la sesión, si es una sorpresa…"></textarea>
+            </div>
+
+          </div>
+
+          <button type="submit" class="btn btn-gold" style="margin-top: 1.5rem; font-size: 0.85rem; padding: 1rem 2.5rem;">
+            Enviar reserva
+          </button>
+
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="Itaka Tours inicio">
+            <img src="Images/logo.png" alt="Itaka Tours" class="logo-img" />
+            <div class="logo-text">
+              <span class="logo-name">Itaka Tours</span>
+              <span class="logo-tagline">Venecia</span>
+            </div>
+          </a>
+          <p>Tours guiados en español por la Serenísima. Hacemos que cada rincón de Venecia cobre vida.</p>
+          <a href="https://www.grupoitaka.com" target="_blank" rel="noopener" class="btn btn-outline footer-official-btn">
+            Web oficial Itaka Tours
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Tours</h4>
+          <ul>
+            <li><a href="https://www.grupoitaka.com/venecia/san-marco/" target="_blank" rel="noopener">San Marcos</a></li>
+            <li><a href="https://www.grupoitaka.com/venecia/freetour-murano-y-burano/" target="_blank" rel="noopener">Murano y Burano</a></li>
+            <li><a href="https://www.grupoitaka.com/venecia/guetto-judio/" target="_blank" rel="noopener">Guetto Judío</a></li>
+            <li><a href="https://www.grupoitaka.com/prostitutas-comerciantes-y-piratas/" target="_blank" rel="noopener">Piratas y Comerciantes</a></li>
+            <li><a href="https://www.grupoitaka.com/venecia/leyendas-crimenes-misterios/" target="_blank" rel="noopener">Leyendas y Misterios</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Páginas</h4>
+          <ul>
+            <li><a href="restaurantes.html">Dónde Comer</a></li>
+            <li><a href="fotografia.html">Fotografía</a></li>
+            <li><a href="feedback.html">Tu Opinión</a></li>
+            <li><a href="https://www.grupoitaka.com" target="_blank" rel="noopener">Web oficial</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 <a href="https://www.grupoitaka.com" target="_blank" rel="noopener">Grupo Itaka</a>. Todos los derechos reservados.</p>
+        <p>Hecho con cariño en Venecia</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    /* ── Lightbox ── */
+    (function () {
+      const photos = Array.from(document.querySelectorAll('.photo-item'));
+      const lightbox = document.getElementById('lightbox');
+      const lbImg    = document.getElementById('lbImg');
+      const lbClose  = document.getElementById('lbClose');
+      const lbPrev   = document.getElementById('lbPrev');
+      const lbNext   = document.getElementById('lbNext');
+      let current = 0;
+
+      function open(index) {
+        current = index;
+        const img = photos[current].querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        lbClose.focus();
+      }
+
+      function close() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      function navigate(dir) {
+        current = (current + dir + photos.length) % photos.length;
+        const img = photos[current].querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+      }
+
+      photos.forEach((item, i) => {
+        item.addEventListener('click', () => open(i));
+        item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') open(i); });
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('role', 'button');
+      });
+
+      lbClose.addEventListener('click', close);
+      lbPrev.addEventListener('click', () => navigate(-1));
+      lbNext.addEventListener('click', () => navigate(1));
+
+      lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
+
+      document.addEventListener('keydown', e => {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft')  navigate(-1);
+        if (e.key === 'ArrowRight') navigate(1);
+      });
+
+      /* Botones de paquete → scroll suave al formulario */
+      document.querySelectorAll('a[href="#reserva"]').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.preventDefault();
+          document.getElementById('reserva').scrollIntoView({ behavior: 'smooth' });
+          /* Pre-seleccionar paquete según tarjeta */
+          const card = btn.closest('.package-card');
+          if (card) {
+            const name = card.querySelector('.package-name').textContent.trim().toLowerCase()
+              .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            const select = document.getElementById('paquete');
+            Array.from(select.options).forEach(opt => {
+              if (opt.value === name) select.value = name;
+            });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
