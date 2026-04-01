@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"loading=\" \"d:/Pagina Web - Itaka Post Tour\"/*.html)",
+      "Bash(grep -oE \"grupoitaka\\\\.com[^/\\\\\"]*|www\\\\.grupoitaka\\\\.com[^\\\\\"]*\" \"d:/Pagina Web - Itaka Post Tour\"/*.html)"
+    ]
+  }
+}

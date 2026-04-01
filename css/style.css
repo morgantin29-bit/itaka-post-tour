@@ -1338,8 +1338,9 @@ footer {
 
 /* Tablet — hasta 1100px */
 @media (max-width: 1100px) {
-  .tours-grid    { grid-template-columns: repeat(2, 1fr); }
-  .places-grid   { grid-template-columns: repeat(2, 1fr); }
+  .tours-grid  { grid-template-columns: repeat(2, 1fr); }
+  /* places-grid pasa a 3 columnas (no 2) para evitar el salto brusco de 4→2 */
+  .places-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* Tablet pequeña — hasta 900px */
@@ -1347,7 +1348,10 @@ footer {
   .nav-desktop { display: none; }
   .hamburger   { display: flex; }
 
-  .form-layout { grid-template-columns: 1fr; gap: 3rem; }
+  /* places-grid baja a 2 columnas en tablet pequeña */
+  .places-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .form-layout  { grid-template-columns: 1fr; gap: 3rem; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
 }

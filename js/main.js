@@ -19,12 +19,21 @@
   if (heroFull) {
     requestAnimationFrame(() => heroFull.classList.add('loaded'));
 
-    // Parallax ligero en el hero de inicio
+    // Parallax ligero en el hero de inicio.
+    // Usa requestAnimationFrame para ejecutarse una sola vez por frame
+    // y no saturar el hilo principal en cada evento scroll.
     const heroBg = heroFull.querySelector('.hero-bg');
     if (heroBg) {
+      let parallaxTicking = false;
       window.addEventListener('scroll', () => {
-        if (window.scrollY < window.innerHeight) {
-          heroBg.style.transform = `scale(1) translateY(${window.scrollY * 0.22}px)`;
+        if (!parallaxTicking) {
+          requestAnimationFrame(() => {
+            if (window.scrollY < window.innerHeight) {
+              heroBg.style.transform = `scale(1) translateY(${window.scrollY * 0.22}px)`;
+            }
+            parallaxTicking = false;
+          });
+          parallaxTicking = true;
         }
       }, { passive: true });
     }
