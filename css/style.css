@@ -453,7 +453,7 @@ button {
   justify-content: center;
   overflow: hidden;
   /* Reservar espacio para el header fijo para que el contenido no quede detrás */
-  padding-top: var(80px);
+  padding-top: var(--header-h);
 }
 
 /* Imagen de fondo — se setea con style="background-image: url(...)" en cada HTML */
@@ -1355,7 +1355,9 @@ footer {
 /* Móvil — hasta 640px */
 @media (max-width: 640px) {
   :root { --section-padding: 4rem 0; }
-
+.hero-full {
+  padding-top: 80px;
+}
   .tours-grid  { grid-template-columns: 1fr; }
   .places-grid { grid-template-columns: 1fr; }
 
