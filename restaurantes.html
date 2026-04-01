@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dónde Comer — Itaka Tours Venecia</title>
-  <meta name="description" content="Restaurantes recomendados por los guías de Itaka Tours en Venecia. Selección personal de los mejores locales." />
+  <meta name="description" content="Restaurantes, pizzerías, heladerías y bares recomendados por los guías de Itaka Tours en Venecia." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
@@ -54,15 +54,16 @@
       <div class="container hero-page-content">
         <p class="hero-page-label">Selección de nuestros guías</p>
         <h1 class="hero-page-title">Dónde <span>Comer</span></h1>
-        <p class="hero-page-desc">Locales con encanto, buena cocina y precio justo para terminar el día como se merece.</p>
+        <p class="hero-page-desc">Restaurantes, pizzerías, heladerías y bares recomendados por el equipo de Itaka Tours.</p>
       </div>
     </section>
 
 
     <!-- ════════════════════════════════════════
-         CONTENIDO GASTRONÓMICO
-         Estructura por categorías para facilitar
-         la adición de bares, heladerías, etc.
+         ACORDEÓN DE CATEGORÍAS GASTRONÓMICAS
+         Para añadir una nueva categoría: copiar un bloque
+         .accordion-item completo y actualizar su contenido.
+         Imagen de fondo: agregar en Images/categorias/
     ════════════════════════════════════════ -->
     <section class="section section-bg-dark">
       <div class="container">
@@ -71,178 +72,393 @@
           <span class="section-label">Gastronomía veneciana</span>
           <h2 class="section-title">Recomendaciones <span>de nuestros guías</span></h2>
           <div class="gold-line"></div>
-          <p class="section-subtitle">Una selección personal de los mejores locales de Venecia. Sitios donde comen los que conocen la ciudad de verdad.</p>
+          <p class="section-subtitle">Abrí cada categoría para ver los sitios recomendados. Locales donde comen los que conocen Venecia de verdad.</p>
         </div>
 
+        <div class="accordion" id="gastronomia">
 
-        <!-- ════════════════════════════════════════
-             CATEGORÍA: RESTAURANTES
-             Para añadir un restaurante: copiar un bloque
-             <article class="place-card"> y actualizar datos.
-             Para añadir una categoría nueva (bares, heladerías...):
-             copiar toda la sección .category-section de abajo
-             y cambiar el título y los place-cards.
-        ════════════════════════════════════════ -->
-        <div class="category-section reveal">
 
-          <h3 class="category-title">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
-            </svg>
-            Restaurantes
-          </h3>
+          <!-- ══════════════════════════════════════
+               CATEGORÍA 1: RESTAURANTES
+               Para añadir un restaurante: copiar un
+               bloque .place-card dentro de .places-grid
+          ══════════════════════════════════════ -->
+          <div class="accordion-item open" id="cat-restaurantes">
+            <button class="accordion-header" aria-expanded="true" aria-controls="body-restaurantes">
+              <div class="accordion-bg" style="background-image: url('Images/categorias/restaurantes.png'); background-position: center 60%;"></div>
+              <div class="accordion-header-content">
+                <div class="accordion-cat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                  </svg>
+                </div>
+                <div class="accordion-cat-info">
+                  <span class="accordion-cat-count">8 lugares</span>
+                  <h3 class="accordion-cat-title">Restaurantes</h3>
+                </div>
+                <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </button>
 
-          <div class="places-grid">
+            <div class="accordion-body" id="body-restaurantes">
+              <div class="accordion-body-inner">
+                <div class="accordion-body-content">
+                  <div class="places-grid">
 
-            <!-- ── Restaurante 1 ── -->
-            <article class="place-card reveal reveal-d1">
-              <span class="place-number" aria-hidden="true">01</span>
-              <h4 class="place-name">Dallo Zio Santa Margherita</h4>
-              <p class="place-desc">Un clásico del barrio. Ambiente local y auténtico en el corazón del Campo Santa Margherita, perfecta para terminar la tarde con los lugareños.</p>
-              <a href="https://maps.app.goo.gl/L7Lgng4tna2NLDRF7" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver Dallo Zio en Google Maps">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                Ver en Maps
-              </a>
-            </article>
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">01</span>
+                      <h4 class="place-name">Dallo Zio Santa Margherita</h4>
+                      <p class="place-desc">Un clásico del barrio. Ambiente local y auténtico en el corazón del Campo Santa Margherita.</p>
+                      <a href="https://maps.app.goo.gl/L7Lgng4tna2NLDRF7" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
 
-            <!-- ── Restaurante 2 ── -->
-            <article class="place-card reveal reveal-d2">
-              <span class="place-number" aria-hidden="true">02</span>
-              <h4 class="place-name">Al Grill</h4>
-              <span class="place-tag">Carnes · Vinoteca</span>
-              <p class="place-desc">Carnes a la brasa y vinoteca con decoración rústica. Ideal para los que prefieren alejarse del marisco y disfrutar de una buena carne en Venecia.</p>
-              <a href="https://maps.app.goo.gl/atYxbzGGFAdANk767" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver Al Grill en Google Maps">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                Ver en Maps
-              </a>
-            </article>
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">02</span>
+                      <h4 class="place-name">Al Grill</h4>
+                      <span class="place-tag">Carnes · Vinoteca</span>
+                      <p class="place-desc">Carnes a la brasa y vinoteca con decoración rústica. Ideal para los que prefieren alejarse del marisco.</p>
+                      <a href="https://maps.app.goo.gl/atYxbzGGFAdANk767" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
 
-            <!-- ── Restaurante 3 ── -->
-            <article class="place-card reveal reveal-d3">
-              <span class="place-number" aria-hidden="true">03</span>
-              <h4 class="place-name">Spicy Puppa</h4>
-              <span class="place-tag">Mariscos · Pasta</span>
-              <p class="place-desc">Precios accesibles a solo 10 min de Rialto. Buena relación calidad-precio en un ambiente informal.</p>
-              <p class="place-tip">★ Pide los risottos al frutti di mare</p>
-              <a href="https://maps.app.goo.gl/mNtq7hNhKGyx33s99" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver Spicy Puppa en Google Maps">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                Ver en Maps
-              </a>
-            </article>
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">03</span>
+                      <h4 class="place-name">Spicy Puppa</h4>
+                      <span class="place-tag">Mariscos · Pasta</span>
+                      <p class="place-desc">Precios accesibles a solo 10 min de Rialto. Buena relación calidad-precio en ambiente informal.</p>
+                      <p class="place-tip">★ Pide los risottos al frutti di mare</p>
+                      <a href="https://maps.app.goo.gl/mNtq7hNhKGyx33s99" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
 
-            <!-- ── Restaurante 4 ── -->
-            <article class="place-card reveal reveal-d4">
-              <span class="place-number" aria-hidden="true">04</span>
-              <h4 class="place-name">Alla Corte Ristorante</h4>
-              <span class="place-tag">Pizza · Pasta · Música en directo</span>
-              <p class="place-desc">Cocina tradicional veneciana con pizza y pasta en un ambiente cálido y animado con música en directo. Una velada completa.</p>
-              <a href="https://maps.app.goo.gl/K16pxfypVJxD9hy66" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver Alla Corte en Google Maps">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                Ver en Maps
-              </a>
-            </article>
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">04</span>
+                      <h4 class="place-name">Alla Corte Ristorante</h4>
+                      <span class="place-tag">Pizza · Pasta · Música en directo</span>
+                      <p class="place-desc">Cocina tradicional veneciana con pizza y pasta, animado con música en directo. Una velada completa.</p>
+                      <a href="https://maps.app.goo.gl/K16pxfypVJxD9hy66" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
 
-            <!-- ── Restaurante 5 ── -->
-            <article class="place-card reveal reveal-d1">
-              <span class="place-number" aria-hidden="true">05</span>
-              <h4 class="place-name">La Piazza</h4>
-              <span class="place-tag">Pizza · Pasta · Mariscos</span>
-              <p class="place-desc">Pegado a San Marco con terraza al aire libre. Pizzas, pastas y mariscos frescos con las mejores vistas de la ciudad.</p>
-              <a href="https://maps.app.goo.gl/Uc4opYFqFtpUMisL7" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver La Piazza en Google Maps">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                Ver en Maps
-              </a>
-            </article>
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">05</span>
+                      <h4 class="place-name">La Piazza</h4>
+                      <span class="place-tag">Pizza · Pasta · Mariscos</span>
+                      <p class="place-desc">Pegado a San Marco con terraza al aire libre. Pizzas, pastas y mariscos frescos con las mejores vistas.</p>
+                      <a href="https://maps.app.goo.gl/Uc4opYFqFtpUMisL7" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
 
-            <!-- ── Restaurante 6 ── -->
-            <article class="place-card reveal reveal-d2">
-              <span class="place-number" aria-hidden="true">06</span>
-              <h4 class="place-name">Al Mariner</h4>
-              <span class="place-tag">Cocina marinera</span>
-              <p class="place-desc">Cocina marinera veneciana auténtica con producto fresco de temporada. Un lugar para los verdaderos amantes del mar.</p>
-              <a href="https://maps.app.goo.gl/SPUypLV6HUMf6Pwj7" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver Al Mariner en Google Maps">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                Ver en Maps
-              </a>
-            </article>
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">06</span>
+                      <h4 class="place-name">Al Mariner</h4>
+                      <span class="place-tag">Cocina marinera</span>
+                      <p class="place-desc">Cocina marinera veneciana auténtica con producto fresco de temporada. Para los amantes del mar.</p>
+                      <a href="https://maps.app.goo.gl/SPUypLV6HUMf6Pwj7" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
 
-            <!-- ── Restaurante 7 ── -->
-            <article class="place-card reveal reveal-d3">
-              <span class="place-number" aria-hidden="true">07</span>
-              <h4 class="place-name">Al Timon</h4>
-              <span class="place-tag">Mariscos · Filetes · Terraza</span>
-              <p class="place-desc">Mariscos, filetes y pastas con mesas al aire libre a orillas del canal. Ideal para una cena tranquila viendo pasar las góndolas.</p>
-              <a href="https://maps.app.goo.gl/ogBRczuP9CPDqjKE6" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver Al Timon en Google Maps">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                Ver en Maps
-              </a>
-            </article>
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">07</span>
+                      <h4 class="place-name">Al Timon</h4>
+                      <span class="place-tag">Mariscos · Filetes · Terraza</span>
+                      <p class="place-desc">Mariscos, filetes y pastas con mesas al aire libre a orillas del canal. Ideal para cenar viendo las góndolas.</p>
+                      <a href="https://maps.app.goo.gl/ogBRczuP9CPDqjKE6" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
 
-            <!-- ── Restaurante 8 ── -->
-            <article class="place-card reveal reveal-d4">
-              <span class="place-number" aria-hidden="true">08</span>
-              <h4 class="place-name">Trattoria Al Gazzettino</h4>
-              <span class="place-tag">Carnes · Pescado</span>
-              <p class="place-desc">Carnes y pescado en un ambiente animado y popular entre los lugareños. Comida honesta, raciones generosas y precios razonables.</p>
-              <a href="https://maps.app.goo.gl/PbguXYvkVBWP6XGZA" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver Al Gazzettino en Google Maps">
-                <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                Ver en Maps
-              </a>
-            </article>
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">08</span>
+                      <h4 class="place-name">Trattoria Al Gazzettino</h4>
+                      <span class="place-tag">Carnes · Pescado</span>
+                      <p class="place-desc">Carnes y pescado en ambiente animado y popular entre lugareños. Comida honesta y raciones generosas.</p>
+                      <a href="https://maps.app.goo.gl/PbguXYvkVBWP6XGZA" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
 
-            <!-- ════════════════════════════════════════
-                 AÑADIR NUEVOS RESTAURANTES AQUÍ
-                 Copiar cualquier <article class="place-card">
-                 de arriba, actualizar número, nombre, tag,
-                 descripción y href de Maps.
-            ════════════════════════════════════════ -->
+                    <!-- AÑADIR NUEVOS RESTAURANTES AQUÍ — copiar un bloque <article class="place-card"> -->
 
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <!-- FIN CATEGORÍA RESTAURANTES -->
+          <!-- FIN CATEGORÍA RESTAURANTES -->
 
 
-        <!-- ════════════════════════════════════════
-             NUEVA CATEGORÍA: BARES
-             Descomentar y completar cuando esté listo.
-             Copiar la estructura .category-section completa.
-             NOTA: no usar comentarios anidados dentro de este bloque.
-        ════════════════════════════════════════ -->
+          <!-- ══════════════════════════════════════
+               CATEGORÍA 2: PIZZERÍAS
+          ══════════════════════════════════════ -->
+          <div class="accordion-item" id="cat-pizzerias">
+            <button class="accordion-header" aria-expanded="false" aria-controls="body-pizzerias">
+              <div class="accordion-bg" style="background-image: url('Images/categorias/pizzerias.png'); background-position: center 40%;"></div>
+              <div class="accordion-header-content">
+                <div class="accordion-cat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+                  </svg>
+                </div>
+                <div class="accordion-cat-info">
+                  <span class="accordion-cat-count">4 lugares</span>
+                  <h3 class="accordion-cat-title">Pizzerías</h3>
+                </div>
+                <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </button>
 
-        <!-- BARES — plantilla (descomentar cuando esté listo):
-        <div class="category-section reveal">
-          <h3 class="category-title">
-            Bares
-          </h3>
-          <div class="places-grid">
-            (copiar place-card aquí)
+            <div class="accordion-body" id="body-pizzerias">
+              <div class="accordion-body-inner">
+                <div class="accordion-body-content">
+                  <div class="places-grid">
+
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">01</span>
+                      <h4 class="place-name">Antico Forno</h4>
+                      <span class="place-tag">Pizza al corte · Para llevar</span>
+                      <p class="place-desc">Pizza de masa fina y por porción con cerveza artesanal. Perfecta para comer caminando por Venecia.</p>
+                      <a href="https://maps.app.goo.gl/dPrK3z4PhLZ5o6wc6" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
+
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">02</span>
+                      <h4 class="place-name">1000 Gourmet</h4>
+                      <span class="place-tag">Pizza · Pasta · Km 0</span>
+                      <p class="place-desc">Pizza, pasta e ingredientes locales sostenibles. Cocina de proximidad con mucho sabor.</p>
+                      <a href="https://maps.app.goo.gl/vvVzP3Cw8xnyLdBy8" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
+
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">03</span>
+                      <h4 class="place-name">Ai Do Archi</h4>
+                      <a href="https://maps.app.goo.gl/j2b4EHptZdejnXKk6" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
+
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">04</span>
+                      <h4 class="place-name">Rossopomodoro</h4>
+                      <a href="https://maps.app.goo.gl/nZg7xbR5ugJLNtSQ8" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
+
+                    <!-- AÑADIR NUEVAS PIZZERÍAS AQUÍ -->
+
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        -->
+          <!-- FIN CATEGORÍA PIZZERÍAS -->
 
 
-        <!-- HELADERÍAS — plantilla (descomentar cuando esté listo):
-        <div class="category-section reveal">
-          <h3 class="category-title">
-            Heladerías
-          </h3>
-          <div class="places-grid">
-            (copiar place-card aquí)
+          <!-- ══════════════════════════════════════
+               CATEGORÍA 3: HELADERÍAS
+          ══════════════════════════════════════ -->
+          <div class="accordion-item" id="cat-heladerias">
+            <button class="accordion-header" aria-expanded="false" aria-controls="body-heladerias">
+              <div class="accordion-bg" style="background-image: url('Images/categorias/heladerias.png'); background-position: center 35%;"></div>
+              <div class="accordion-header-content">
+                <div class="accordion-cat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"/>
+                  </svg>
+                </div>
+                <div class="accordion-cat-info">
+                  <span class="accordion-cat-count">4 lugares</span>
+                  <h3 class="accordion-cat-title">Heladerías</h3>
+                </div>
+                <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </button>
+
+            <div class="accordion-body" id="body-heladerias">
+              <div class="accordion-body-inner">
+                <div class="accordion-body-content">
+                  <div class="places-grid">
+
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">01</span>
+                      <h4 class="place-name">Gelatoteca Suso</h4>
+                      <a href="https://maps.app.goo.gl/VsfnaPws9bvW6Cwg6" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
+
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">02</span>
+                      <h4 class="place-name">Gelateria il Doge</h4>
+                      <a href="https://maps.app.goo.gl/bnfEdg7mmuR9cyj79" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
+
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">03</span>
+                      <h4 class="place-name">Gelateria Gallonetto</h4>
+                      <a href="https://maps.app.goo.gl/GaW4ASWD763cSEyN6" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
+
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">04</span>
+                      <h4 class="place-name">Bacaro del Gelato</h4>
+                      <a href="https://maps.app.goo.gl/1UoR45ukTshzFx2N7" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
+
+                    <!-- AÑADIR NUEVAS HELADERÍAS AQUÍ -->
+
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        -->
+          <!-- FIN CATEGORÍA HELADERÍAS -->
 
 
-        <!-- PASTELERÍAS Y CAFÉS — plantilla (descomentar cuando esté listo):
-        <div class="category-section reveal">
-          <h3 class="category-title">
-            Pastelerías y Cafés
-          </h3>
-          <div class="places-grid">
-            (copiar place-card aquí)
+          <!-- ══════════════════════════════════════
+               CATEGORÍA 4: BARES Y CICHETERÍAS
+          ══════════════════════════════════════ -->
+          <div class="accordion-item" id="cat-bares">
+            <button class="accordion-header" aria-expanded="false" aria-controls="body-bares">
+              <div class="accordion-bg" style="background-image: url('Images/categorias/bares.png'); background-position: center 50%;"></div>
+              <div class="accordion-header-content">
+                <div class="accordion-cat-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div class="accordion-cat-info">
+                  <span class="accordion-cat-count">6 lugares</span>
+                  <h3 class="accordion-cat-title">Bares y Cicheterías</h3>
+                </div>
+                <svg class="accordion-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </button>
+
+            <div class="accordion-body" id="body-bares">
+              <div class="accordion-body-inner">
+                <div class="accordion-body-content">
+                  <div class="places-grid">
+
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">01</span>
+                      <h4 class="place-name">Osteria Al Tappo</h4>
+                      <span class="place-tag">Vin e Cicheti</span>
+                      <p class="place-desc">Vinos locales y cicheti (tapas venecianas) en un bacaro de barrio, exactamente como debe ser.</p>
+                      <a href="https://maps.app.goo.gl/PKRurYkb7JxVf2A36" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
+
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">02</span>
+                      <h4 class="place-name">Bacaro ae Bricoe</h4>
+                      <a href="https://maps.app.goo.gl/ybufFUGMbN5anVSg9" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
+
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">03</span>
+                      <h4 class="place-name">Cicchetteria da Luca e Fred</h4>
+                      <a href="https://maps.app.goo.gl/yi2xNpiwrCoE1Gk2A" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
+
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">04</span>
+                      <h4 class="place-name">Magna Bevi Tasi</h4>
+                      <a href="https://maps.app.goo.gl/UZuzxzorfHEBjrYE6" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
+
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">05</span>
+                      <h4 class="place-name">Caffè dei Frari</h4>
+                      <a href="https://maps.app.goo.gl/hXc1EaEBUyTrSNKp9" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
+
+                    <article class="place-card">
+                      <span class="place-number" aria-hidden="true">06</span>
+                      <h4 class="place-name">Osteria Alla Rampa</h4>
+                      <a href="https://maps.app.goo.gl/JnWEzbA8JtVN3KRWA" target="_blank" rel="noopener" class="btn btn-map" aria-label="Ver en Google Maps">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ver en Maps
+                      </a>
+                    </article>
+
+                    <!-- AÑADIR NUEVOS BARES AQUÍ -->
+
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+          <!-- FIN CATEGORÍA BARES -->
+
+
+          <!-- ══════════════════════════════════════
+               NUEVA CATEGORÍA — plantilla:
+               1. Copiar un bloque .accordion-item completo
+               2. Cambiar id, aria-controls, imagen de fondo,
+                  icono SVG, count, título y places-grid
+               3. Añadir imagen en Images/categorias/
+          ══════════════════════════════════════ -->
+
+
         </div>
-        -->
+        <!-- FIN ACORDEÓN -->
 
       </div>
     </section>
@@ -295,5 +511,35 @@
   </footer>
 
   <script src="js/main.js"></script>
+
+  <!-- ════════════════════════════════════════
+       ACORDEÓN — Script específico de esta página
+  ════════════════════════════════════════ -->
+  <script>
+    (function () {
+      const items = document.querySelectorAll('.accordion-item');
+
+      items.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+
+        header.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+
+          // Cerrar todos
+          items.forEach(i => {
+            i.classList.remove('open');
+            i.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+          });
+
+          // Abrir el clicado si estaba cerrado
+          if (!isOpen) {
+            item.classList.add('open');
+            header.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+  </script>
+
 </body>
 </html>
