@@ -6,6 +6,8 @@ Página post-tour para turistas que acaban de hacer un tour con **Itaka Tours** 
 
 El proyecto irá creciendo con el tiempo: se agregarán bares, heladerías, más fotos, más tours, etc.
 
+**Host:** Cloudflare Pages — `itaka-post-tour.pages.dev`
+
 ---
 
 ## Estética y diseño
@@ -16,24 +18,54 @@ El proyecto irá creciendo con el tiempo: se agregarán bares, heladerías, más
 
 ---
 
-## Estructura de la página (`index.html`)
+## Páginas del sitio
 
-1. **Header** — logo (`images/logo.png`, pendiente de añadir) + nombre "Itaka Tours"
-2. **Hero** — foto de fondo + texto principal: *"Gracias por haber realizado la actividad con nosotros"*
-3. **Sección de tours** — tarjetas con foto, nombre, descripción breve y botón "Reserva tu plaza"
-4. **Sección de restaurantes recomendados**
-5. **Formulario de contacto**
-6. **Footer**
+| Archivo | Descripción | Estado |
+|---------|-------------|--------|
+| `index.html` | Hero de bienvenida con 4 CTAs (Tours, Dónde Comer, Fotografía, Tu Opinión) | ✅ Completa |
+| `tours.html` | Grid de los 5 tours disponibles | ✅ Completa |
+| `restaurantes.html` | Acordeón con 6 categorías gastronómicas | ✅ Completa |
+| `fotografia.html` | Galería, video, paquetes y formulario de reserva | ✅ Completa |
+| `feedback.html` | Formulario de valoración del tour | ✅ Completa |
+
+---
+
+## Convenciones importantes
+
+### Rutas de imágenes
+- La carpeta de imágenes es **`Images/`** con I mayúscula — crítico para Cloudflare Pages (case-sensitive)
+- Usar siempre `Images/` en todas las rutas, nunca `images/`
+- Subcarpetas: `Images/banners/`, `Images/Categorias/`, `Images/fotografia/`, `Images/tours/`
+
+### Acordeón de restaurantes
+- Todos los acordeones deben arrancar **cerrados** por defecto al cargar la página
+- Ningún `.accordion-item` debe tener la clase `open` en el HTML inicial
+- Ningún botón `.accordion-header` debe tener `aria-expanded="true"` en el HTML inicial
 
 ---
 
 ## Estructura de carpetas de imágenes
 
 ```
-images/
-├── logo.png              ← pendiente
-├── banners/              ← fotos para hero y banners
-├── galeria/              ← fotos decorativas generales
+Images/
+├── logo.png
+├── banners/              ← fotos para heroes de páginas interiores
+├── Categorias/           ← banners del acordeón de restaurantes
+│   ├── restaurantes.png
+│   ├── pizzerias.png
+│   ├── heladerias.png
+│   ├── bares.png
+│   ├── sin-gluten.png
+│   └── vegetarianos.png
+├── fotografia/           ← fotos para la página fotografia.html
+│   ├── DSC08885-Mejorado-NR.jpg
+│   ├── 02.jpg
+│   ├── 03.jpg
+│   ├── 0112.jpg
+│   ├── DSC08688.jpg
+│   ├── DSC09859.jpg      ← hero de fotografia.html (carnaval)
+│   ├── DSC09678.jpg
+│   └── DSC00239.jpg
 └── tours/
     ├── san-marco.jpg
     ├── murano-burano.jpg
@@ -54,28 +86,41 @@ images/
 | 4 | Prostitutas, Comerciantes y Piratas | 1h 45m | — | grupoitaka.com/prostitutas-comerciantes-y-piratas/ |
 | 5 | Leyendas, Crímenes y Misterios | 2h | — | grupoitaka.com/venecia/leyendas-crimenes-misterios/ |
 
-Imágenes de tours en `images/tours/` (ver nombres de archivo en tabla de carpetas).
-
 ---
 
 ## Restaurantes recomendados
 
-| # | Nombre | Descripción | Google Maps |
-|---|--------|-------------|-------------|
-| 1 | Dallo Zio Santa Margherita | — | maps.app.goo.gl/L7Lgng4tna2NLDRF7 |
-| 2 | Al Grill | Carnes y vinoteca, decoración rústica | maps.app.goo.gl/atYxbzGGFAdANk767 |
-| 3 | Spicy Puppa | Precios accesibles, a 10 min de Rialto. Recomendado: Risottos al frutti di mare | maps.app.goo.gl/mNtq7hNhKGyx33s99 |
-| 4 | Alla Corte Ristorante | Tradicional, pizza, pasta, música en directo | maps.app.goo.gl/K16pxfypVJxD9hy66 |
-| 5 | La Piazza | Pegado a San Marco, pizzas, pastas y mariscos al aire libre | maps.app.goo.gl/Uc4opYFqFtpUMisL7 |
-| 6 | Al Mariner | — | maps.app.goo.gl/SPUypLV6HUMf6Pwj7 |
-| 7 | Al Timon | Mariscos, filetes y pastas, mesas al aire libre | maps.app.goo.gl/ogBRczuP9CPDqjKE6 |
-| 8 | Trattoria Al Gazzettino | Carnes y pescado, ambiente animado | maps.app.goo.gl/PbguXYvkVBWP6XGZA |
+### Categoría: Restaurantes (8)
+Dallo Zio Santa Margherita, Al Grill, Spicy Puppa, Alla Corte Ristorante, La Piazza, Al Mariner, Al Timon, Trattoria Al Gazzettino
+
+### Categoría: Pizzerías
+Antico Forno, 1000 Gourmet, y otros
+
+### Categoría: Heladerías
+(ver restaurantes.html)
+
+### Categoría: Bares
+(ver restaurantes.html)
+
+### Categoría: Sin Gluten / Celíacos (7)
+Da Poggi, Ae Oche San Giacomo, Vecia Cavana, Antico Dolo, Al Giardinetto da Severino, Al Vecio Canton, Al Gallo d'Oro
+
+### Categoría: Vegetarianos / Veganos (3)
+Al Theatro, La Zucca, La Tecia Vegana
+
+---
+
+## Fotografía (fotografia.html)
+
+- **Hero**: `Images/fotografia/DSC09859.jpg` (carnaval), `background-position: center 30%`
+- **Galería**: 8 fotos en grid 3/2/1 col con lightbox (flechas + teclado)
+- **Video**: embed YouTube `https://www.youtube.com/embed/UdObR4InuNs`
+- **Paquetes**: Básico €80 (1h · 20 fotos), Estándar €150 (2h · 50 fotos + video), Premium €280 (medio día · ilimitadas + video)
+- **Formulario**: Netlify Forms con `name="reserva-foto"` — campos: nombre, email, teléfono, fecha, paquete, mensaje
 
 ---
 
 ## Próximas secciones (roadmap)
 
-- Bares recomendados
-- Heladerías recomendadas
 - Más fotos / galería ampliada
 - Más tours
