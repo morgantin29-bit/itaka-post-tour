@@ -447,7 +447,7 @@ button {
   overflow: hidden;
   /* Reservar espacio para el header fijo para que el contenido no quede detrás */
   padding-top: var(--header-h);
-  padding-bottom: 3rem;
+  padding-bottom: 5rem;
 }
 
 /* Imagen de fondo — se setea con style="background-image: url(...)" en cada HTML */
@@ -1493,6 +1493,11 @@ footer {
 /* ════════════════════════════
    16. RESPONSIVE
 ════════════════════════════ */
+
+/* Desktop: ocultar eyebrow del hero (se superpone al nav en pantallas grandes) */
+@media (min-width: 641px) {
+  .hero-eyebrow { display: none; }
+}
 
 /* Tablet — hasta 1100px */
 @media (max-width: 1100px) {
