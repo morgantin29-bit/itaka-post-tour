@@ -521,12 +521,12 @@ button {
   animation: fadeUp 0.8s 0.7s forwards;
 }
 
-/* Grid de 3 tiles CTA grandes */
+/* Grid de 4 tiles CTA grandes */
 .hero-cta-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  max-width: 760px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 920px;
   margin: 0 auto;
   opacity: 0;
   animation: fadeUp 0.8s 0.9s forwards;
