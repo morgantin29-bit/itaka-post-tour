@@ -42,6 +42,13 @@ El proyecto irá creciendo con el tiempo: se agregarán bares, heladerías, más
 - Ningún `.accordion-item` debe tener la clase `open` en el HTML inicial
 - Ningún botón `.accordion-header` debe tener `aria-expanded="true"` en el HTML inicial
 
+### Hero del index — decisiones de layout (2025-04-07)
+- El grid de CTAs usa **4 columnas** (`repeat(4, 1fr)`, `max-width: 920px`, `gap: 1rem`) para que las 4 tarjetas quepan en una sola fila en desktop. **No volver a 3 columnas.**
+- El `.hero-eyebrow` ("Itaka Tours · Venecia") está **oculto en desktop** (`@media (min-width: 641px)`) porque se superponía visualmente al nav — sigue visible en móvil
+- El indicador de scroll "Explorar" fue **eliminado** del `index.html` (era redundante y se superponía a las tarjetas)
+- `.hero-full` tiene `padding-bottom: 5rem` en desktop y `padding-bottom: 3rem` en móvil (sobreescrito en el breakpoint `max-width: 640px`)
+- **Regla:** cualquier ajuste del hero solo puede hacerse con `@media (min-width: 641px)` o en el bloque base — el breakpoint `max-width: 640px` no se toca para no afectar móvil
+
 ---
 
 ## Estructura de carpetas de imágenes
