@@ -447,6 +447,7 @@ button {
   overflow: hidden;
   /* Reservar espacio para el header fijo para que el contenido no quede detrás */
   padding-top: var(--header-h);
+  padding-bottom: 3rem;
 }
 
 /* Imagen de fondo — se setea con style="background-image: url(...)" en cada HTML */
