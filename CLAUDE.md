@@ -10,11 +10,11 @@ Página post-tour para turistas de **Itaka Tours** en Venecia. Estilo elegante, 
 
 | Archivo | Descripción |
 |---------|-------------|
-| `index.html` | Hero fullscreen con 4 CTAs: Tours, Dónde Comer, Fotografía, Tu Opinión |
+| `index.html` | Hero fullscreen con 3 CTAs (Tours, Dónde Comer, Fotografía) + bloque de opinión (Google + TripAdvisor) debajo |
 | `tours.html` | Grid de los 5 tours disponibles |
 | `restaurantes.html` | Acordeón con 6 categorías gastronómicas |
 | `fotografia.html` | Galería, video, paquetes y formulario de reserva |
-| `feedback.html` | Formulario de valoración del tour |
+| `feedback.html` | Formulario de valoración del tour (ya no linkeado desde index) |
 
 ---
 
@@ -28,7 +28,8 @@ Página post-tour para turistas de **Itaka Tours** en Venecia. Estilo elegante, 
 - Todos arrancan **cerrados** al cargar: ningún `.accordion-item` con clase `open`, ningún `.accordion-header` con `aria-expanded="true"` en el HTML inicial
 
 ### Hero del index (`index.html` + `css/style.css`)
-- Grid de CTAs: **4 columnas** (`repeat(4, 1fr)`, `max-width: 920px`, `gap: 1rem`) — no volver a 3
+- Grid de CTAs: **3 columnas** (`repeat(3, 1fr)`, `max-width: 720px`, `gap: 1rem`)
+- **Bloque de opinión** (`.cta-opinion-group`): debajo del grid, centrado, con 2 tarjetas (Google + TripAdvisor) que abren en nueva pestaña. Iconos SVG inline: Google en colores oficiales, TripAdvisor en `currentColor` (dorado)
 - `.hero-eyebrow` oculto en desktop (`@media (min-width: 641px)`) — se superponía al nav; visible en móvil
 - Indicador "Explorar" eliminado del HTML (se superponía a las tarjetas)
 - `.hero-full`: `padding-bottom: 5rem` en base; el breakpoint móvil lo sobreescribe a `3rem`
